@@ -1,0 +1,18 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        unique = 0
+        for i in range(len(nums)):
+            if nums[i] != nums[unique]:
+                unique += 1
+                nums[unique] = nums[i]
+        return unique + 1
+
+'''
+How it works (Simple Terms):
+1. Start with the first number.
+2. For each next number, check if it's different from the last unique number found.
+3. If it's different, that means it's a new unique number, so move it forward in the list.
+4. At the end, nums[:unique+1] contains all unique numbers at the front of the list.
+5. Return the count unique + 1 (the number of unique numbers).
+'''
+ 
