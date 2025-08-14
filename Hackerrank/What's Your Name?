@@ -1,0 +1,10 @@
+def print_full_name(first, last):
+    # 'first' and 'last' are the parameter names here
+    print(f"Hello {first} {last}! You just delved into python.")
+
+
+#The value of last_name is passed to the function and assigned to the parameter named last
+if __name__ == '__main__':
+    first_name = input()
+    last_name = input()
+    print_full_name(first_name, last_name)
