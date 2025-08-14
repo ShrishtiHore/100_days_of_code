@@ -1,0 +1,10 @@
+def swap_case(s):
+    # This line correctly swaps the case of the string 's'
+    swapped_string = s.swapcase()
+    # This line returns the new string with the swapped cases
+    return swapped_string
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
