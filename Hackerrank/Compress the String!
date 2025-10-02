@@ -1,0 +1,22 @@
+import itertools
+
+def compress_string(s):
+    # itertools.groupby(s) groups consecutive identical characters
+    groups = itertools.groupby(s)
+    
+    # We use a list comprehension and the * operator to print the tuples 
+    # separated by a space, which is the required format.
+    
+    # For each key (character) and group (iterator of the character run):
+    # 1. Calculate the count: len(list(group))
+    # 2. Get the integer character: int(key)
+    # 3. Create the tuple: (count, int(key))
+    result = [(len(list(g)), int(k)) for k, g in groups]
+    
+    # The '*' unpacks the list of tuples, and print() outputs them with a space separator.
+    print(*result)
+
+if __name__ == '__main__':
+    # The input will be read as a string of digits (e.g., '1222311')
+    s = input()
+    compress_string(s)
