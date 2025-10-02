@@ -1,0 +1,53 @@
+'''
+Letters Used: It uses letters from 'a' up to the n-th letter of the alphabet. If n=3, it uses 'a', 'b', 'c'.
+Center Line: The widest line (the middle) contains all n letters in descending order, then ascending order (e.g., for n=3: c-b-a-b-c).
+Maximum Width: The total width of the rangoli is determined by the center line. For size n, the center line has 2n−1 letters and 2(n−1) hyphens, resulting in a total width of 4n−3 characters. Every line must be centered within this width.
+Symmetry: The pattern is symmetric. The bottom half is the mirror image of the top half (excluding the center line).
+'''
+
+import string
+
+def print_rangoli(size):
+    #if the size of the rangoli is just one letter
+    if size == 1:
+        print("a")
+        return
+    
+    # Get the letters used (e.g., for size 3, it's ['a', 'b', 'c'])
+    alpha_list = string.ascii_lowercase
+    letters = alpha_list[:size]
+    
+    # Calculate the maximum width
+    # Total width = (2 * (size - 1)) * 2 + (2 * (size - 1) + 1) -> 4 * size - 3
+    max_width = 4 * size - 3
+    
+    lines = []
+    
+    # Build the top half (and center line)
+    for i in range(size):
+        # The characters for the current line 
+        current_letters = letters[size - 1 - i : size] 
+        
+        # Build the left half of the string 
+        left_half = '-'.join(current_letters[::-1]) 
+        
+        # Build the right half (e.g., 'b-c')
+        right_half = '-'.join(current_letters[1:])
+        
+        # Combine to form the full pattern string 
+        line_pattern = left_half + '-' + right_half
+        
+        # Center the line with hyphens and append to the list
+        lines.append(line_pattern.center(max_width, '-'))
+    
+    # Print the top half (including the center line) in normal order
+    for line in lines:
+        print(line)
+        
+    # Print the bottom half in reverse order
+    for line in reversed(lines[:-1]):
+        print(line)
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
