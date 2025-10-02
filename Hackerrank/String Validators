@@ -1,0 +1,22 @@
+if __name__ == '__main__':
+    s = input()
+
+    # 1. Has any alphanumeric characters?
+    # Checks if any character 'char' in 's' is alphanumeric
+    print(any(char.isalnum() for char in s)) 
+    
+    # 2. Has any alphabetical characters?
+    # Checks if any character 'char' in 's' is alphabetical
+    print(any(char.isalpha() for char in s))
+    
+    # 3. Has any digits?
+    # Checks if any character 'char' in 's' is a digit
+    print(any(char.isdigit() for char in s))
+    
+    # 4. Has any lowercase characters?
+    # Checks if any character 'char' in 's' is lowercase
+    print(any(char.islower() for char in s))
+    
+    # 5. Has any uppercase characters?
+    # Checks if any character 'char' in 's' is uppercase
+    print(any(char.isupper() for char in s))
