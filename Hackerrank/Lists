@@ -2,9 +2,15 @@ if __name__ == '__main__':
     N = int(input())
     my_list = []
     
-    for _ in range(N):
-        command = input().split()
-        
+    for i in range(N):
+        try:
+            # Read the next command line and split it into parts
+            line = input().split()
+            command = line[0]
+            args = line[1:]
+        except EOFError:
+            break  # Stop if the input stream ends unexpectedly
+               
         if command[0] == "insert":
             my_list.insert(int(command[1]), int(command[2]))
         elif command[0] == "print":
