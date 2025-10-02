@@ -1,0 +1,16 @@
+from itertools import combinations_with_replacement
+    
+line = input().split()
+        
+word = line[0]
+sub_string = int(line[1])
+
+sorted_word = sorted(word) 
+    
+result = list(combinations_with_replacement(sorted_word, sub_string))
+
+result_strings = [''.join(p) for p in result]
+
+for s in result_strings:
+    print(s)
+    
