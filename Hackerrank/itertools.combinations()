@@ -1,0 +1,46 @@
+'''
+from itertools import combinations
+    
+line = input().split()
+word = line[0]
+sub_string1 = int(line[1])-1
+sub_string2 = int(line[1])
+
+result1 = list(combinations(word, sub_string1))
+result2 = list(combinations(word, sub_string2))
+
+result_strings1 = [''.join(p) for p in result1]
+result_strings2 = [''.join(p) for p in result2]
+
+result_strings1.sort()
+result_strings2.sort()
+
+for s1 in result_strings1:
+    print(s1)
+for s2 in result_strings2:
+    print(s2)
+'''
+
+
+from itertools import combinations
+
+def solve_combinations_challenge():
+    
+    line = input().split()
+        
+    word = line[0]
+    K = int(line[1]) 
+
+    sorted_word = sorted(word) 
+
+    for r in range(1, K + 1):
+
+        result_tuples = list(combinations(sorted_word, r))
+        
+        result_strings = [''.join(p) for p in result_tuples]
+        
+        for s in result_strings:
+            print(s)
+
+if __name__ == '__main__':
+    solve_combinations_challenge()
