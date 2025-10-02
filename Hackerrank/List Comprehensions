@@ -1,0 +1,25 @@
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input()) 
+    
+# --- List Comprehension Solution ---
+    # 1. The outermost list creates the final structure: []
+    # 2. The innermost part defines each element: [i, j, k]
+    # 3. The three nested loops generate all possible coordinates: 
+    #    for i in range(x + 1)
+    #    for j in range(y + 1)
+    #    for k in range(z + 1)
+    # 4. The final condition filters the list: if i + j + k != n
+    
+    cordinate_list = [
+        [i, j, k]
+        for i in range(x+1)
+        for j in range(y+1)
+        for k in range(z+1)
+        if i + j + k != n
+    ]
+    print(cordinate_list)
+        
+        
