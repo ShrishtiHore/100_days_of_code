@@ -1,27 +1,27 @@
 if __name__ == '__main__':
-    my_list = []
-    for _ in range(int(input())):
+    records = []
+    
+    for i in range(int(input())):
         name = input()
         score = float(input())
-        my_list.append([name, score])
+        records.append([name, score])
+        
+    # Extract all scores using a list comprehension
+    all_scores = [record[1] for record in records]
     
-    #remove duplicates
-    scores = [item[1] for item in my_list]
-     
-    #set will create unordered "set" of unique values
-    #list will convert from set to list
-    #sort will arrange in asc order
-    unique_scores = sorted(list(set(scores)))
-    
-    #finding the second lowest score
+    # Use set() to get only unique scores, then sort them.
+    # The second element (index 1) is the second-lowest score.
+    unique_scores = sorted(list(set(all_scores)))
     second_lowest_score = unique_scores[1]
     
-    #filter for names with the second-lowest score
-    names_with_second_lowest_score = [item[0] for item in my_list if item[1] == second_lowest_score]
+    # Filter the names whose score matches the second-lowest, 
+    # then sort the names alphabetically.
+    second_lowest_students = sorted(
+        [name for name, score in records if score == second_lowest_score]
+    )
     
-    #print the names with second lowest score
-    names_with_second_lowest_score.sort()
-    for name in names_with_second_lowest_score:
+    # Print each name on a new line
+    for name in second_lowest_students:
         print(name)
-        
+    
     
