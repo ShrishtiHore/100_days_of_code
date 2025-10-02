@@ -1,0 +1,9 @@
+from itertools import product
+
+input_a = input()
+input_b = input()
+A = list(map(int, input_a.split()))
+B = list(map(int, input_b.split()))
+
+AxB = list(product(A, B))
+print(*AxB)
