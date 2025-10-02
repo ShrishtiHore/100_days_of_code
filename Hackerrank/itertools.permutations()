@@ -1,0 +1,14 @@
+from itertools import permutations
+    
+line = input().split()
+word = line[0]
+sub_string = int(line[1])
+
+result = list(permutations(word, sub_string))
+
+result_strings = [''.join(p) for p in result]
+
+result_strings.sort()
+
+for s in result_strings:
+    print(s)
