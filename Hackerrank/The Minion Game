@@ -1,0 +1,38 @@
+import string
+
+def minion_game(s):
+    max_len = len(s)
+    
+    #just setting all the alphabets
+    all_letters = string.ascii_uppercase
+    vowels = set('AEIOU')
+    consonants = set(all_letters) - vowels
+    
+    #setting up scores
+    stuart_score = 0
+    kevin_score = 0
+    
+    for i in range(max_len):
+        # The character at the current index (start of the substring)
+        char = s[i]
+        
+        # The number of substrings that start at index i is (n - i)
+        substrings_count = max_len - i
+        
+        #score calculation
+        if char in vowels:
+            kevin_score += substrings_count
+        else:
+            stuart_score += substrings_count
+            
+    # Print the result 
+    if stuart_score > kevin_score:
+        print(f"Stuart {stuart_score}")
+    elif kevin_score > stuart_score:
+        print(f"Kevin {kevin_score}")
+    else:
+        print("Draw")
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
