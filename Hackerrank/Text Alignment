@@ -1,0 +1,31 @@
+thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    # Width: (thickness - 1) + 1 + (thickness - 1) = 2 * thickness - 1
+    # We need the left part (c*i) aligned to the right, and the right part (c*i) aligned to the left.
+    print((c*i).rjust(thickness-1) + c + (c*i).ljust(thickness-1))
+
+#Top Pillars
+for i in range(thickness+1):
+    # Total width is 6 * thickness. The two pillars are aligned to the left (ljust).
+    # The first pillar is aligned within a width of 2 * thickness.
+    # The second pillar is aligned within the remaining width to make the total 6 * thickness.
+    print((c*thickness).center(thickness*2) + (c*thickness).center(thickness*6))
+
+#Middle Belt
+for i in range((thickness+1)//2):
+    # The middle belt spans the full width of 5 * thickness, centered within the total print width (6 * thickness).
+    print((c*thickness*5).center(thickness*6))    
+
+#Bottom Pillars
+for i in range(thickness+1):
+    # Same logic as Top Pillars.
+    print((c*thickness).center(thickness*2) + (c*thickness).center(thickness*6))    
+
+#Bottom Cone
+for i in range(thickness):
+    # 1. The inner section is the inverted top cone: ((c*(thickness-i-1)).rjust(thickness) + c + (c*(thickness-i-1)).ljust(thickness))
+    # 2. This entire structure (which has a width of 2*thickness + 1) needs to be centered within the total print width (6 * thickness).
+    print(((c*(thickness-i-1)).rjust(thickness) + c + (c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
