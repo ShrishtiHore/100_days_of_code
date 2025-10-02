@@ -1,12 +1,38 @@
 if __name__ == '__main__':
-    n = int(input())
-    student_marks = {}
+    # 1. Read N (number of student records)
+    n = int(input()) 
+    
+    # Initialize the dictionary to store records
+    student_marks = {} 
+    
+    # 2. Loop N times to read and store student data
     for _ in range(n):
-        name, *line = input().split()
-        scores = list(map(float, line))
-        student_marks[name] = scores
-    query_name = input()
+        line = input().split()
+        name = line[0]
+        
+        # CORRECT DATA TYPE CONVERSION:
+        # Convert the string marks (line[1:]) to a list of floats 
+        # before storing them in the dictionary.
+        marks = list(map(float, line[1:])) 
+        
+        # Store the student data: key=name, value=list of marks
+        student_marks[name] = marks
 
-    #average of score of the selected student
-    average = sum(student_marks[query_name])/len(student_marks[query_name])
-print(f"{average:.2f}")
+    # 3. Read the query name AFTER all data has been stored
+    query_name = input()
+    
+    # 4. Process the query
+    
+    # Get the list of marks for the query name from the dictionary
+    query_marks = student_marks[query_name]
+    
+    # Calculate the sum of the marks
+    total_score = sum(query_marks)
+    
+    # Calculate the average (correct denominator is the number of marks)
+    number_of_marks = len(query_marks)
+    average_score = total_score / number_of_marks
+    
+    # 5. Print the result formatted to 2 decimal places
+    # The format specifier :.2f ensures this.
+    print(f"{average_score:.2f}")
