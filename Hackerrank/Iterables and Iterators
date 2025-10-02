@@ -1,0 +1,43 @@
+from itertools import combinations
+
+def solve_iterables_and_iterators():
+    # 1. Input Processing using standard input()
+    
+    # N = total number of letters (Read line 1)
+    N = int(input())
+    
+    # letters = list of N letters, space-separated (Read line 2)
+    letters = input().split()
+    
+    # K = number of indices to choose (Read line 3)
+    K = int(input())
+    
+    # 2. Setup and Combination Generation
+    
+    # Create a list of all indices (0 to N-1)
+    indices = list(range(N))
+    
+    # Generate all possible combinations of K indices
+    all_combinations = list(combinations(indices, K))
+    
+    total_combinations = len(all_combinations)
+    successful_combinations = 0
+    
+    # 3. Check for 'a' in each combination
+    for combo in all_combinations:
+        # Check if the letter at any index in the combination is 'a'
+        # The check is letters[index] == 'a' for all index in the current combo
+        if any(letters[index] == 'a' for index in combo):
+            successful_combinations += 1
+            
+    # 4. Calculate and Print the Probability
+    
+    # Since N >= K and K >= 1, total_combinations will be > 0.
+    probability = successful_combinations / total_combinations
+    
+    # Print the final result
+    print(probability)
+
+# 5. Function Call (Necessary to run the code on HackerRank)
+if __name__ == "__main__":
+    solve_iterables_and_iterators()
