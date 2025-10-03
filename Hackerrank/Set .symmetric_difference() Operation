@@ -1,0 +1,12 @@
+#The .symmetric_difference() operator returns a set with all the elements that are in the set and the iterable but not both.
+#meaning the items that are common in both the sets are removed from the final result
+
+M = int(input()) 
+set_A = set(map(int, input().split()))
+
+N = int(input())
+set_B = set(map(int, input().split()))
+
+symmetric_difference_set = set_A.symmetric_difference(set_B)
+
+print(len(symmetric_difference_set))
