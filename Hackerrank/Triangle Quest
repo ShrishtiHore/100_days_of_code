@@ -1,0 +1,6 @@
+for i in range(1,int(input())):
+    print(i*(10**i -1)//9) 
+    
+    #formula for repunit : i*(10**i - 1)//9
+    #A Repunit is a number consisting solely of the digit 1.
+    # eg: for i = 1: 1, for i = 2: 11, for i=3: 111, for i = 4: 1111 and so on
