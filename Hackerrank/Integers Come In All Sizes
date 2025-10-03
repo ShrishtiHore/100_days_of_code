@@ -1,0 +1,9 @@
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+
+a_raised_to_b = a**b
+c_raised_to_d = c**d
+
+print(a_raised_to_b + c_raised_to_d)
