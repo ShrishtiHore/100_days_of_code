@@ -1,0 +1,31 @@
+n = int(input()) #no. of elements
+s = set(map(int, input().split()))
+
+N = int(input()) # no. of commands
+
+#here taking element = int(line[1]) in every case just becoz pop does not have a numerical element after the command. boring!
+
+for i in range(N):
+    
+    line = input().split()
+    command = line[0]
+
+    if command == "pop":
+        try:
+            s.pop()
+        except KeyError:
+            # Handles the case where pop is called on an empty set (optional, but good practice)
+            pass 
+    
+    elif command == "remove":
+        element = int(line[1])
+        try:
+            s.remove(element)
+        except KeyError:
+            pass 
+
+    elif command == "discard":
+        element = int(line[1])
+        s.discard(element) 
+
+print(sum(s))
