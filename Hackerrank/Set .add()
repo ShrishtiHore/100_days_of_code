@@ -1,0 +1,18 @@
+n = int(input())
+
+country_set = set()
+
+while True:
+    try:
+        country = input()
+        
+        if not country: #check if the line is empty
+            break
+        
+        country_set.add(country)
+        
+    except EOFError: # Stop reading if the input stream ends
+        break
+        
+print(len(country_set))
+
