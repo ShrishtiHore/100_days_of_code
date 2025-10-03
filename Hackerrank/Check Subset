@@ -1,0 +1,37 @@
+'''
+just potato head trying to understand the format of input
+
+3 : total no. of test cases
+
+5 : no. elements in set A
+1 2 3 5 6 : set A
+9 : no. of elements in set B
+9 8 5 6 3 2 1 4 7 : set B
+
+1 : no. elements in set A
+2 : set A
+5 : no. of elements in set B
+3 6 5 4 1 : set B
+
+7 : no. of elements in set A
+1 2 3 5 6 8 9 : set A
+3
+9 8 2
+'''
+
+T = int(input())
+
+for i in range(T):
+    a = int(input())
+    set_a = set(map(int, input().split()))
+    
+    b = int(input())
+    set_b = set(map(int, input().split()))
+    
+    if set_a.issubset(set_b):
+        print(True)
+    else:
+        print(False)
+           
+    
+
