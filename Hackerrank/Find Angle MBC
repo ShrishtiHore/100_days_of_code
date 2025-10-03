@@ -1,0 +1,15 @@
+import math
+
+ab = int(input())
+bc = int(input())
+
+value = ab/bc #angle c and angle mbc are equal so their tan are too!
+
+angle_mbc_in_radians = math.atan(value)
+
+angle_mbc_in_degrees = round(math.degrees(angle_mbc_in_radians))
+
+degree_symbol = chr(176)
+
+print(f"{angle_mbc_in_degrees}{degree_symbol}")
+
