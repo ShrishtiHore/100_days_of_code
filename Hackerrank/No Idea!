@@ -1,0 +1,20 @@
+# The first line of input (N and M) is often read and discarded in terms of variables,
+input()
+
+arr = list(map(int, input().split()))
+
+A = set(map(int, input().split()))
+
+B = set(map(int, input().split()))
+
+# Initialize the happiness score
+happiness_score = 0
+
+# Iterate through the main list and calculate the score
+for i in arr:
+    if i in A:
+        happiness_score += 1
+    elif i in B:  # Use elif because a number can't affect the score twice
+        happiness_score -= 1
+
+print(happiness_score)
