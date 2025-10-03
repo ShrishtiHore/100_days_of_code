@@ -1,0 +1,31 @@
+T = int(input())
+
+for i in range(T):
+    line = input().split()
+    
+    try:
+        a = int(line[0])
+        b = int(line[1])
+        print(int(a/b))
+        
+    except ZeroDivisionError as e:
+        print("Error Code: integer division or modulo by zero")
+        
+    except ValueError as v:
+        print(f"Error Code: invalid literal for int() with base 10: '{line[1]}'")
+        
+    except Exception as ex:
+        print(f"An unexpected error occurred: {ex}")
+
+
+#better and more flexible solution
+'''
+test_cases = int(input()) #reads the number of test cases
+test_cases_list = [input().split(" ") for _ in range(test_cases)] #accepts the pairs of inputs and splits them into integers
+    
+for num in test_cases_list:
+    try:
+        print(int(num[0]) // int(num[1])) #tries to perform the division
+    except Exception as e:
+        print(f"Error Code: {e}") #directly prints out the error as it occurs instead of mannually printing it
+'''
