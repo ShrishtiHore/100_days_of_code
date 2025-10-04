@@ -1,0 +1,23 @@
+students, subjects = map(int, input().split())
+
+#list to create all subjects score list
+score_list = []
+
+for i in range(subjects):
+    subject_scores = list(map(float, input().split()))
+    score_list.append(subject_scores) #here the scores are stored subject wise
+    
+#create inner tuples for scores for each student
+# Use the zip(*) operator to group scores by student
+# It transposes the matrix of scores
+
+#The asterisk (*) is the unpacking operator. When used with zip(), it effectively does the opposite of zipping: it takes the list of lists and treats each inner list as a separate argument to the zip() function.
+
+student_scores = zip(*score_list) #here the subject score is tranposed per student
+
+for scores in student_scores:
+    # 'scores' is a tuple containing the student's marks in all X subjects
+    
+    average_score = sum(scores)/ subjects
+    
+    print(f"{average_score:.1f}") #one decimal float for result
