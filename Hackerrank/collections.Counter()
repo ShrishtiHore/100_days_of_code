@@ -1,0 +1,32 @@
+from collections import Counter
+
+# 1. Read the total number of shoes (X) - not strictly needed, but consumes the line
+X = int(input()) 
+
+# 2. Read the available shoe sizes and create a Counter (The inventory)
+shoe_inventory = Counter(map(int, input().split()))
+
+# 3. Read the number of customers (N)
+N = int(input())
+
+# Initialize total sales revenue
+total_revenue = 0
+
+# 4. Process N customer orders
+for _ in range(N):
+    # Read the customer's request: size and price from one line
+    # Example input line: "6 55"
+    size, price = map(int, input().split())
+    
+    # 5. CORE LOGIC: Check if the requested shoe size is available
+    if shoe_inventory[size] > 0:
+        # If available, process the sale:
+        
+        # Add the price to the total revenue
+        total_revenue += price
+        
+        # Decrement the count for that shoe size in the inventory
+        shoe_inventory[size] -= 1
+
+# 6. Print the final total revenue
+print(total_revenue)
