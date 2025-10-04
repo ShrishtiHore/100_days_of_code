@@ -1,0 +1,9 @@
+#The eval() expression is a very powerful built-in function of Python. It helps in evaluating an expression. The expression can be a Python statement, or a code object.
+
+#example the polynomial problem to check if value of k is equal to sum of the powers of the polynomials
+
+#or simple examples like eval("9 + 5") gives automatically 14
+
+#or type(eval("len")) for code functions like this
+
+eval(input()) #simple and satheek!
