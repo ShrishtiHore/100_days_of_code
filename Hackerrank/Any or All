@@ -1,0 +1,13 @@
+#any(): This expression returns True if any element of the iterable is true. If the iterable is empty, it will return False.
+#all(): This expression returns True if all of the elements of the iterable are true. If the iterable is empty, it will return True.
+
+N = int(input())
+N_integers = input().split()
+
+is_all_positive = all(int(x) > 0 for x in N_integers)
+
+any_palindrome = any(x == x[::-1] for x in N_integers) 
+
+#:: means [start:stop:step] slicing tool eg: [::2] means Start at the beginning, go to the end, take every 2nd element. 'Hello'[::2] results in 'Hlo' [::-1] means Start at the beginning, go to the end, take steps of -1 (reversing the sequence). eg: 'World'[::-1] results in 'dlroW'
+
+print(is_all_positive and any_palindrome)
