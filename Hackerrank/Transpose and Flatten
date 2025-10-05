@@ -1,0 +1,17 @@
+import numpy as np
+import sys
+
+N, M = map(int, sys.stdin.readline().split())
+
+data_list = []
+for _ in range(N):
+    data_list.extend(map(int, sys.stdin.readline().split()))
+
+numpy_array = np.array(data_list, dtype=int).reshape(N, M)
+
+transposed_array = np.transpose(numpy_array)
+
+flattened_array = numpy_array.flatten() 
+
+print(transposed_array) 
+print(flattened_array)
