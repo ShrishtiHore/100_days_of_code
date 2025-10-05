@@ -1,0 +1,43 @@
+from collections import namedtuple
+
+'''
+example 1:
+point = namedtuple('Point', 'x,y')
+pt1 = point(1,2)
+pt2 = point(3,4)
+
+dot_product = (pt1.x * pt2.x) + (pt1.y * pt2.y)
+
+print(dot_product)
+
+example 2:
+car = namedtuple('car', 'Price Mileage Color Class')
+xyz = car(Price = 1000, Mileage = 30, Color = 'Cyan', Class = 'Sedan')
+print(xyz.class)
+print(xyz)
+'''
+N = int(input())
+excel_header = input().split()
+records = namedtuple('records', excel_header)
+
+student_records = []
+
+for i in range(N):
+    data_row = input().split()
+    
+    student = records(*data_row) #unpacking elements
+    
+    student_records.append(student)
+    
+total_marks = sum(int(r.MARKS) for r in student_records)
+average = total_marks/N
+
+print(average)
+    
+
+    
+
+
+
+
+
