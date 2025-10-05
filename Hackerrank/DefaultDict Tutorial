@@ -1,0 +1,61 @@
+#The defaultdict tool is a container in the collections class of Python. It's similar to the usual dictionary (dict) container, but the only difference is that a defaultdict will have a default value if that key has not been set yet. If you didn't use a defaultdict you'd have to check to see if that key exists, and if it doesn't, set it to what you want.
+
+from collections import defaultdict
+import sys
+
+try:
+    N, M = map(int, sys.stdin.readline().split())
+except:
+    N, M = 0, 0 
+    
+group_a = defaultdict(list) 
+for i in range(N):
+    word = sys.stdin.readline().rstrip()
+    
+    group_a[word].append(str(i + 1))
+    
+for _ in range(M):
+    # Read the next M lines for Group B
+    word = sys.stdin.readline().rstrip()
+    
+    if word in group_a:
+        print(' '.join(group_a[word]))
+    else:
+        print('-1')
+
+
+'''
+hitting time exceeded test case 5 in this solution. Sad life :(
+
+n, m = map(int, input().split())
+
+group_a = defaultdict(list)
+
+group_b = defaultdict(list)
+
+for i in range(n):
+    word = input().strip()
+    group_a[word].append(str(i+1))
+    
+for i in range(m):
+    word = input().strip()
+    group_b[word].append(str(i+1))
+    
+for word in group_b:
+    if word in group_a:
+        print(' '.join(group_a[word]))
+    else:
+        print('-1')
+        
+'''
+
+
+
+
+
+
+
+
+
+
+        
