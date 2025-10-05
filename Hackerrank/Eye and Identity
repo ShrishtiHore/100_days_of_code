@@ -1,0 +1,17 @@
+import numpy as np 
+import sys
+
+#The identity tool returns an identity array. An identity array is a square matrix with all the main diagonal elements as  and the rest as . The default type of elements is float.
+
+#The eye tool returns a 2-D array with 's as the diagonal and 's elsewhere. The diagonal can be main, upper or lower depending on the optional parameter . A positive  is for the upper diagonal, a negative  is for the lower, and a   (default) is for the main diagonal.
+
+np.set_printoptions(legacy = "1.13")
+
+try:
+    N, M = map(int, sys.stdin.readline().split())
+except:
+    N, M = 0,0
+
+unity_matrix = np.eye(N, M)
+
+print(unity_matrix)
