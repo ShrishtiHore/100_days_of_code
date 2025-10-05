@@ -1,0 +1,52 @@
+import numpy as np 
+import sys
+
+try:
+    N, M, P = map(int, sys.stdin.readline().split())
+except:
+    N, M, P = 0, 0, 0
+    
+data_A = []
+for _ in range(N):
+    line = sys.stdin.readline().split()
+    
+    if line:
+        data_A.extend(map(int, line))
+        
+data_B = []
+for _ in range(N):
+    line = sys.stdin.readline().split()
+    
+    if line:
+        data_B.extend(map(int, line))
+        
+# Create the NumPy arrays and RESHAPE them
+# Reshape ensures Array A is N rows x P columns, and Array B is M rows x P columns.
+if N > 0 and P > 0:
+    array_A = np.array(data_A, dtype=int).reshape(N, P)
+else:
+    array_A = np.array([])
+    
+if M > 0 and P > 0:
+    array_B = np.array(data_B, dtype=int).reshape(M, P)
+else:
+    array_B = np.array([])
+    
+# Concatenate the two arrays along the row axis (axis=0, vertical stacking)
+# This joins Array B to the bottom of Array A.
+if array_A.size > 0 and array_B.size > 0:
+    concatenated_array = np.concatenate((array_A, array_B), axis=0)
+elif array_A.size > 0:
+    concatenated_array = array_A
+elif array_B.size > 0:
+    concatenated_array = array_B
+else:
+    concatenated_array = np.array([])
+
+print(concatenated_array)
+
+
+
+
+
+
