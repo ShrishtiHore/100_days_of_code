@@ -1,0 +1,42 @@
+#A deque is a double-ended queue. It can be used to add or remove elements from both ends.
+
+from collections import deque
+
+n = int(input())
+d = deque()
+
+for i in range(n):
+    try:
+        line = input().split()
+        command = line[0]
+    except EOFError:
+        break 
+
+    if command == 'append':
+        d.append(line[1])
+        
+    elif command == 'appendleft':
+        d.appendleft(line[1])
+        
+    elif command == 'pop':
+        d.pop()
+        
+    elif command == 'popleft':
+        d.popleft()
+        
+    elif command == 'rotate':
+        d.rotate(int(line[1]))
+
+    elif command == 'extend':
+        d.extend([line[1]]) 
+        
+    elif command == 'extendleft':
+        d.extendleft([line[1]])
+        
+    elif command == 'remove':
+        try:
+            d.remove(line[1])
+        except ValueError:
+            pass 
+
+print(*d)
