@@ -1,0 +1,13 @@
+#floor returns the floor of the input element-wise.
+#ceil returns the ceiling of the input element-wise.
+#rint tool rounds to the nearest integer of input element-wise.
+
+import numpy as np
+
+np.set_printoptions(legacy='1.13')
+
+my_array = np.array(list(map(float, input().split())))
+
+print(np.floor(my_array))
+print(np.ceil(my_array))
+print(np.rint(my_array))
