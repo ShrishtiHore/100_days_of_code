@@ -1,0 +1,22 @@
+import numpy as np 
+import sys
+
+N, M = map(int, sys.stdin.readline().split())
+
+data_A = []
+for _ in range(N):
+    data_A.extend(map(int, sys.stdin.readline().split()))
+    
+data_B = []
+for _ in range(N):
+    data_B.extend(map(int, sys.stdin.readline().split()))
+
+array_A = np.array(data_A, dtype=int).reshape(N, M) 
+array_B = np.array(data_B, dtype=int).reshape(N, M)
+
+print(np.add(array_A, array_B))
+print(np.subtract(array_A, array_B))
+print(np.multiply(array_A, array_B))
+print(np.floor_divide(array_A, array_B))
+print(np.mod(array_A, array_B))
+print(np.power(array_A, array_B))
