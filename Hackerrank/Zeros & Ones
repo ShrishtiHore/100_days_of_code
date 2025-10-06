@@ -1,0 +1,12 @@
+#The zeros tool returns a new array with a given shape and type filled with 's.
+#The ones tool returns a new array with a given shape and type filled with 's.
+
+import numpy as np
+
+dimensions = tuple(map(int, input().split()))
+
+zero_array = np.zeros(dimensions, dtype=int)
+ones_array = np.ones(dimensions, dtype=int)
+
+print(zero_array)
+print(ones_array)
