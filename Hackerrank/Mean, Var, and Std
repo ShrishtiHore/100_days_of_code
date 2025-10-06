@@ -1,0 +1,41 @@
+
+import numpy as np
+import sys
+
+'''
+try:
+    N, M = map(int, sys.stdin.readline().split())
+except:
+    N, M = 0, 0
+    
+data_list = []
+for _ in range(N):
+    line = sys.stdin.readline().split()
+    if line:
+        data_list.extend(map(int, line))
+    
+if N > 0 and M > 0 and len(data_list) == N * M:
+    numpy_array = np.array(data_list, dtype=int).reshape(N, M)
+else:
+    numpy_array = np.array([[]])
+    
+mean_array = np.mean(numpy_array, axis=1) 
+var_array = np.var(numpy_array, axis=0)
+std_array = np.std(numpy_array, axis=None)
+
+print(mean_array)
+print(var_array)
+print(f"{std_array:.11f}")
+'''
+
+n,m = map(int,input().split())
+
+l1 = []
+for i in range(n):
+    l1.append(list(map(int, input().split())))
+
+arr = np.array(l1)
+
+print(np.mean(arr, axis =1))
+print(np.var(arr, axis = 0))
+print(round(np.std(arr, axis = None),11))
