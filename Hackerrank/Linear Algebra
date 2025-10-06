@@ -1,0 +1,13 @@
+#The linalg.det tool computes the determinant of an array.
+#The linalg.eig computes the eigenvalues and right eigenvectors of a square array.
+#The linalg.inv tool computes the (multiplicative) inverse of a matrix.
+
+import numpy as np
+
+N = int(input())
+
+my_array = np.array([input().split() for i in range(N)], float)
+
+print(round(np.linalg.det(my_array),2))
+
+
