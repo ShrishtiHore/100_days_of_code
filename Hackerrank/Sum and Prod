@@ -1,0 +1,22 @@
+import numpy as np
+import sys
+
+N, M = map(int, sys.stdin.readline().split())
+
+data_A = []
+#doing this becoz normal for loop cannot iterate over an empty array. so if data_A is empty but we are using for loop in range(N) thats 2 in this case cannot happen cause its data_A = [] so nothing to iterate here!
+data_list = []
+for _ in range(N):
+    line = sys.stdin.readline().split()
+    if line:
+        data_list.extend(map(int, line))
+    
+# This reshape call now has data to work with (assuming input provided N*M elements for B)
+if N > 0 and M > 0 and len(data_list) == N * M:
+    numpy_array = np.array(data_list, dtype=int).reshape(N, M)
+else:
+    numpy_array = np.array([[]])
+    
+sum_array = np.sum(numpy_array, axis=0)
+
+print(np.prod(sum_array))
