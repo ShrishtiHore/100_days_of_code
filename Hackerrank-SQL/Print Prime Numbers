@@ -1,0 +1,19 @@
+---A recursive query is one that refers to itself — it keeps running repeatedly until a stopping condition is met.
+
+---generate numbers from 2 to 1000 using recursive
+WITH RECURSIVE numbers AS(
+    SELECT 2 AS n 
+    UNION ALL
+    SELECT n+1 FROM numbers WHERE n < 1000
+)
+---GROUP_CONCAT() is a MySQL function that merges multiple rows into a single string. SEPARATOR '&' tells it to use & between each number.
+SELECT GROUP_CONCAT(n SEPARATOR '&') AS primes
+FROM numbers
+WHERE n NOT IN (
+    SELECT a.n
+    FROM numbers a ---a is the number to be checked
+    JOIN numbers b ---b are the factors
+    ON a.n > b.n  ---eg. for a = 6, b would be 2,3,4,5 to check
+    WHERE a.n%b.n = 0 ---then check if a is divisible by b
+) 
+---if the rem is zero then its divisible and not a prime number
