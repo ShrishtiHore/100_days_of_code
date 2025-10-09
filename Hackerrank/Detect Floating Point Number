@@ -1,0 +1,21 @@
+import re
+
+T = int(input())
+
+for i in range(T):
+    try:
+        input_str = input()
+    except EOFError:
+        break 
+
+    is_numeric = False
+    
+    pattern = r'^[+-]?\d*\.\d+$' 
+
+    if re.fullmatch(pattern, input_str):
+        # The string structurally matches a valid float representation
+        # Use float() to confirm it's not an edge case Python allows but problem rejects            
+        float(input_str)
+        print(True)
+    else:
+        print(False)
