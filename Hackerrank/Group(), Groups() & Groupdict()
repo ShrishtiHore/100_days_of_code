@@ -1,0 +1,21 @@
+import re
+
+#A group() expression returns one or more subgroups of the match.
+#A groups() expression returns a tuple containing all the subgroups of the match.
+#A groupdict() expression returns a dictionary containing all the named subgroups of the match, keyed by the subgroup name.
+'''
+input_str = input()
+
+regex_pattern = r'(\d)\1'
+
+match = re.search(regex_pattern, input_str)
+
+if match:
+    print(match.group(1))
+else:
+    print(-1)
+'''
+if result := re.search(r'([a-zA-Z0-9])\1',input()):
+    print(result.group(1))
+else:
+    print(-1)
