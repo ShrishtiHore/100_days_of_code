@@ -1,8 +1,28 @@
 def swap_case(s):
     # This line correctly swaps the case of the string 's'
-    swapped_string = s.swapcase()
+    swapped_string = s.swapcase() #using swap method in python
     # This line returns the new string with the swapped cases
     return swapped_string
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
+
+
+##alternate way
+def swap_case(s):
+    new_string = ""
+    
+    for ch in s:
+        if ch.isupper():
+            new_string += ch.lower()
+        elif ch.islower():
+            new_string += ch.upper()
+        else:
+            new_string += ch
+    
+    return new_string
 
 if __name__ == '__main__':
     s = input()
