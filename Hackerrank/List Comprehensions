@@ -21,5 +21,18 @@ if __name__ == '__main__':
         if i + j + k != n
     ]
     print(cordinate_list)
-        
+
+# ---Alternative Solution (same logic) --- 
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    cordinate_list = []
+    
+    for i in range(x+1):
+        for j in range(y+1):
+            for k in range(z+1):
+                if i+j+k != n:
+                    cordinate_list.append([i,j, k])
         
