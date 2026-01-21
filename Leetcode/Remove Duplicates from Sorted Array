@@ -15,4 +15,18 @@ How it works (Simple Terms):
 4. At the end, nums[:unique+1] contains all unique numbers at the front of the list.
 5. Return the count unique + 1 (the number of unique numbers).
 '''
+
+#my solution outside leetcode environment
+
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        k = 0
+        unique_nums = []
+        for i in nums:
+            if i not in unique_nums:
+                unique_nums.append(i) 
+        k = len(unique_nums)
+        return k
+
+
  
